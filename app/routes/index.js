@@ -29,11 +29,11 @@ router.get('/send-redis', async function(req, res, next) {
     id: "123456",
     name: "Davis",
   }
-  // client.publish("message", JSON.stringify(user))
-  await client.set('abc', 'test', redis.print);
-  var value = await client.get('test', redis.print);
+  client.publish("message", JSON.stringify(user))
+  // await client.set('message', 'test', redis.print);
+  // var value = await client.get('test', redis.print);
 
-  console.log(value);
+  // console.log(value);
   res.send("Publishing an Event using Redis")
 })
 
